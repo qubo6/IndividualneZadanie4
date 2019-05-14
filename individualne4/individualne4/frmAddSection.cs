@@ -50,6 +50,7 @@ namespace individualne4
                 _modelSection.Code = txtCode.Text;
                 _addSectionViewModel.UpdateSection(_modelSection);
             }
+
             Close();
         }
     }
