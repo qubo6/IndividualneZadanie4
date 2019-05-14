@@ -17,6 +17,7 @@ namespace individualne4
         private int? _parentId;
         private HierarchyLevel _level;
         private AddSectionViewModel _addSectionViewModel = new AddSectionViewModel();
+        private ModelSection _modelSection = null;
         public frmAddSection(int? parentId, HierarchyLevel level)
         {
             InitializeComponent();
@@ -24,14 +25,31 @@ namespace individualne4
             _level = level;
         }
 
+        public frmAddSection(ModelSection modelSection)
+        {
+            InitializeComponent();
+            _modelSection = modelSection;
+            txtName.Text = _modelSection.Name;
+            txtCode.Text = _modelSection.Code;
+        }
+
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            ModelSection section = new ModelSection();
-            section.HierarchyLevel = _level;
-            section.ParentSectionId = _parentId;
-            section.Name = txtName.Text;
-            section.Code = txtCode.Text;
-            _addSectionViewModel.AddSection(section);
+            if (_modelSection == null)
+            {
+                ModelSection section = new ModelSection();
+                section.HierarchyLevel = _level;
+                section.ParentSectionId = _parentId;
+                section.Name = txtName.Text;
+                section.Code = txtCode.Text;
+                _addSectionViewModel.AddSection(section);
+            }
+            else
+            {
+                _modelSection.Name = txtName.Text;
+                _modelSection.Code = txtCode.Text;
+                _addSectionViewModel.UpdateSection(_modelSection);
+            }
             Close();
         }
     }

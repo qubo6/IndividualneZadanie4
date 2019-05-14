@@ -20,5 +20,21 @@ namespace individualne4
         {
             return _logic.GetSections(parentId);
         }
+        public bool SetSectionDirector(ModelSection modelSection)
+        {
+            return _logic.UpdateDirectorIdOfSection(modelSection);
+        }
+        public bool UpdateEmployee(ModelEmployee modelEmployee)
+        {
+            return _logic.UpdateEmployee(modelEmployee);
+        }
+        public List<ModelEmployee> GetEmployeesByDepartmet(int departmentId)
+        {
+            return _logic.GetEmployeesByDepartmet(departmentId);
+        }
+        public string SelectDirectorBySection(int departmentId)
+        {
+            return _logic.SelectDirectorBySection(departmentId);
+        }
     }
 }

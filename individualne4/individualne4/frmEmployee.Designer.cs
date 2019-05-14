@@ -44,59 +44,66 @@
             this.dgwEmployee.AllowUserToResizeRows = false;
             this.dgwEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgwEmployee.ColumnHeadersVisible = false;
-            this.dgwEmployee.Location = new System.Drawing.Point(34, 28);
+            this.dgwEmployee.Location = new System.Drawing.Point(40, 85);
+            this.dgwEmployee.MultiSelect = false;
             this.dgwEmployee.Name = "dgwEmployee";
+            this.dgwEmployee.ReadOnly = true;
+            this.dgwEmployee.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgwEmployee.Size = new System.Drawing.Size(569, 318);
             this.dgwEmployee.TabIndex = 0;
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(34, 382);
+            this.btnUpdate.Location = new System.Drawing.Point(40, 442);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdate.Size = new System.Drawing.Size(110, 60);
             this.btnUpdate.TabIndex = 1;
-            this.btnUpdate.Text = "Update";
+            this.btnUpdate.Text = "Update Employee";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(191, 382);
+            this.btnAdd.Location = new System.Drawing.Point(194, 442);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.Size = new System.Drawing.Size(110, 60);
             this.btnAdd.TabIndex = 2;
-            this.btnAdd.Text = "Add";
+            this.btnAdd.Text = "Add Employee";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(351, 382);
+            this.btnDelete.Location = new System.Drawing.Point(349, 442);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnDelete.Size = new System.Drawing.Size(110, 60);
             this.btnDelete.TabIndex = 3;
-            this.btnDelete.Text = "Delete";
+            this.btnDelete.Text = "Delete Employee";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnChoose
             // 
-            this.btnChoose.Location = new System.Drawing.Point(492, 365);
+            this.btnChoose.Location = new System.Drawing.Point(502, 442);
             this.btnChoose.Name = "btnChoose";
-            this.btnChoose.Size = new System.Drawing.Size(111, 56);
+            this.btnChoose.Size = new System.Drawing.Size(110, 60);
             this.btnChoose.TabIndex = 4;
-            this.btnChoose.Text = "Choose Director of Section";
+            this.btnChoose.Text = "Choose Employee";
             this.btnChoose.UseVisualStyleBackColor = true;
+            this.btnChoose.Click += new System.EventHandler(this.btnChoose_Click);
             // 
             // frmEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(721, 450);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(649, 530);
             this.Controls.Add(this.btnChoose);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.dgwEmployee);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmEmployee";
             this.Text = "Employee";
             ((System.ComponentModel.ISupportInitialize)(this.dgwEmployee)).EndInit();

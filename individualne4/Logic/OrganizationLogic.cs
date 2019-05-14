@@ -10,11 +10,7 @@ namespace Logic
 {
     public class OrganizationLogic
     {
-        public int InsertDirector(ModelEmployee modelEmployee)
-        {
-            return RepositoryManager.EmployeeRepository.InsertDirector(modelEmployee);
-        }
-        public int InsertEmployee(ModelEmployee modelEmployee)
+        public bool InsertEmployee(ModelEmployee modelEmployee)
         {
             return RepositoryManager.EmployeeRepository.InsertEmployee(modelEmployee);
         }
@@ -38,6 +34,37 @@ namespace Logic
         {
             return RepositoryManager.SectionRepository.GetAllSections(parentId);
         }
-
+        public bool UpdateDirectorIdOfSection(ModelSection modelSection)
+        {
+            return RepositoryManager.SectionRepository.UpdateDirectorIdOfSection(modelSection);
+        }
+        public bool UpdateEmployeeWorkAt(ModelEmployee modelEmployee)
+        {
+            return RepositoryManager.EmployeeRepository.UpdateEmployeeWorkAt(modelEmployee);
+        }
+        public List<ModelEmployee> GetEmployeesByDepartmet(int departmentId)
+        {
+            return RepositoryManager.EmployeeRepository.GetEmployeesByDepartmet(departmentId);
+        }
+        public string SelectDirectorBySection(int departmentId)
+        {
+            return RepositoryManager.EmployeeRepository.SelectDirectorBySection(departmentId);
+        }
+        public bool UpdateSection(ModelSection modelSection)
+        {
+            return RepositoryManager.SectionRepository.UpdateSection(modelSection);
+        }
+        public ModelSection SelectSectionById(int sectionId)
+        {
+            return RepositoryManager.SectionRepository.SelectSectionById(sectionId);
+        }
+        public bool UpdateEmployee(ModelEmployee modelEmployee)
+        {
+            return RepositoryManager.EmployeeRepository.UpdateEmployee(modelEmployee);
+        }
+        public ModelEmployee SelectEmployeeById(int employeeId)
+        {
+            return RepositoryManager.EmployeeRepository.SelectEmployeeById(employeeId);
+        }
     }
 }

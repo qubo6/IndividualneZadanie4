@@ -14,9 +14,9 @@ namespace Data.Model
         public string LastName { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
-        public int? WorkAtSectionId { get; set; }
+        public int? WorkAtDepartmentId { get; set; }
 
-        public ModelEmployee(int id, string title, string firstName, string lastName, string phone, string email, int? workAtSectionId)
+        public ModelEmployee(int id, string title, string firstName, string lastName, string phone, string email, int? workAtDepartmentId)
         {
             Id = id;
             Title = title;
@@ -24,7 +24,7 @@ namespace Data.Model
             LastName = lastName;
             Phone = phone;
             Email = email;
-            WorkAtSectionId = workAtSectionId;
+            WorkAtDepartmentId = workAtDepartmentId;
         }
 
         public ModelEmployee()

@@ -7,19 +7,18 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace individualne4
-{
-    public class AddSectionViewModel
+{   
+    public class AddEmployeeViewModel
     {
         private OrganizationLogic _logic = new OrganizationLogic();
 
-        public bool AddSection(ModelSection modelSection)
+        public bool InsertEmployee(ModelEmployee modelEmployee)
         {
-            return _logic.InsertSection(modelSection);
+            return _logic.InsertEmployee(modelEmployee);
         }
-        public bool UpdateSection(ModelSection modelSection)
+        public bool UpdateEmployeeBy(ModelEmployee modelEmployee)
         {
-            return _logic.UpdateSection(modelSection);
+            return _logic.UpdateEmployee(modelEmployee);
         }
-
     }
 }
