@@ -32,26 +32,41 @@ namespace individualne4
             txtName.Text = _modelSection.Name;
             txtCode.Text = _modelSection.Code;
         }
-
-        private void btnConfirm_Click(object sender, EventArgs e)
+        private bool MustBeFilled()
         {
-            if (_modelSection == null)
+            if (txtName.Text.Length!=0 && txtCode.Text.Length != 0)
             {
-                ModelSection section = new ModelSection();
-                section.HierarchyLevel = _level;
-                section.ParentSectionId = _parentId;
-                section.Name = txtName.Text;
-                section.Code = txtCode.Text;
-                _addSectionViewModel.AddSection(section);
+                return true;
             }
             else
             {
-                _modelSection.Name = txtName.Text;
-                _modelSection.Code = txtCode.Text;
-                _addSectionViewModel.UpdateSection(_modelSection);
+                MessageBox.Show("Name and Code must contains some text");
+                return false;
             }
+        }
 
-            Close();
+        private void btnConfirm_Click(object sender, EventArgs e)
+        {
+            if (MustBeFilled())
+            {
+                if (_modelSection == null)
+                {
+                    ModelSection section = new ModelSection();
+                    section.HierarchyLevel = _level;
+                    section.ParentSectionId = _parentId;
+                    section.Name = txtName.Text;
+                    section.Code = txtCode.Text;
+                    _addSectionViewModel.AddSection(section);
+                }
+                else
+                {
+                    _modelSection.Name = txtName.Text;
+                    _modelSection.Code = txtCode.Text;
+                    _addSectionViewModel.UpdateSection(_modelSection);
+                }
+                Close();
+            }
+            
         }
     }
 }

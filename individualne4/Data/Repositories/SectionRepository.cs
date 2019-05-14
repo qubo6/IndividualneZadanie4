@@ -48,6 +48,21 @@ namespace Data.Repositories
             return success;
         }
 
+        public bool UpdateDirectorIdOfSectionToNull(int directorId)
+        {
+            bool success = false;
+            Execute((command) =>
+            {
+                command.CommandText = "Update section SET DirectorId=null where DirectorId=@idDirector";
+                command.Parameters.Add("@idDirector", SqlDbType.Int).Value = directorId;
+                if (command.ExecuteNonQuery() > 0)
+                {
+                    success = true;
+                }
+            });
+            return success;
+        }
+
         public List<ModelSection> GetAllCompanies()
         {
             List<ModelSection> sections = new List<ModelSection>();
@@ -70,7 +85,8 @@ namespace Data.Repositories
             });
             return sections;
         }
-        public List<ModelSection> GetAllSections(int? parentId)
+
+        public List<ModelSection> GetSectionsByParentId(int? parentId)
         {
             List<ModelSection> sections = new List<ModelSection>();
             Execute((command) =>

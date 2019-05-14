@@ -48,6 +48,7 @@
             this.dgwEmployee.MultiSelect = false;
             this.dgwEmployee.Name = "dgwEmployee";
             this.dgwEmployee.ReadOnly = true;
+            this.dgwEmployee.RowHeadersVisible = false;
             this.dgwEmployee.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgwEmployee.Size = new System.Drawing.Size(569, 318);
             this.dgwEmployee.TabIndex = 0;

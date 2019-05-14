@@ -20,6 +20,5 @@ namespace individualne4
         {
             return _logic.UpdateSection(modelSection);
         }
-
     }
 }

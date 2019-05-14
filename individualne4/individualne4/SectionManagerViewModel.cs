@@ -18,7 +18,7 @@ namespace individualne4
         }
         public List<ModelSection> GetSections(int parentId)
         {
-            return _logic.GetSections(parentId);
+            return _logic.GetSectionsByParentId(parentId);
         }
         public bool SetSectionDirector(ModelSection modelSection)
         {

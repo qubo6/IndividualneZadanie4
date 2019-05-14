@@ -30,9 +30,27 @@ namespace Logic
         {
             return RepositoryManager.SectionRepository.GetAllCompanies();
         }
-        public List<ModelSection> GetSections(int parentId)
+        public List<ModelSection> GetSectionsByParentId(int parentId)
         {
-            return RepositoryManager.SectionRepository.GetAllSections(parentId);
+            return RepositoryManager.SectionRepository.GetSectionsByParentId(parentId);
+        }
+
+        public bool RegularDeleteEmployee(int employeeId)
+        {
+            if (UpdateDirectorIdOfSectionToNull(employeeId) && DeleteEmployee(employeeId))
+            {
+                return true;
+            }
+            else if (DeleteEmployee(employeeId))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public bool UpdateDirectorIdOfSectionToNull(int directorId)
+        {
+            return RepositoryManager.SectionRepository.UpdateDirectorIdOfSectionToNull(directorId);
         }
         public bool UpdateDirectorIdOfSection(ModelSection modelSection)
         {

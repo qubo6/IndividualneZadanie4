@@ -18,7 +18,7 @@ namespace individualne4
         }
         public bool DeleteEmployee(int idEmployee)
         {
-            return _logic.DeleteEmployee(idEmployee);
+            return _logic.RegularDeleteEmployee(idEmployee);
         }
     }
 }

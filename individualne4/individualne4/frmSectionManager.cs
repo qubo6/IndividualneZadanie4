@@ -181,8 +181,22 @@ namespace individualne4
             {
                 ClearGrid(dgwEmployees);
             }
+            DisableAddButton(dgwDepartment, btnAddEmployy);
+            EnableButtons();
         }
 
+        private void RefreshGrids()
+        {
+            _sectionManagerViewModel.GetCompanies();
+            GridContent(dgwCompany, _sectionManagerViewModel.GetCompanies());
+            FillGrid(dgwCompany, dgwDivision, lblCompany);
+            FillGrid(dgwDivision, dgwProject, lblDivision);
+            FillGrid(dgwProject, dgwDepartment, lblProject);
+            DisableAddButton(dgwCompany, btnAddDivision);
+            DisableAddButton(dgwDivision, btnAddProject);
+            DisableAddButton(dgwProject, btnAddDepartment);
+            DisableAddButton(dgwDepartment, btnAddEmployy);
+        }
         #endregion
 
         #region Enable/Disable Buttons
@@ -202,10 +216,10 @@ namespace individualne4
             int deptSum = dgwDepartment.Rows.Count;
             int employeeSum = dgwEmployees.Rows.Count;
 
-            List<Button> companiesBtn = new List<Button>() { btnAddCompany, btnCompanyDirector,btnEditCompany };
-            List<Button> divisionsBtn = new List<Button>() { btnDivisionDirector, btnAddDivision,btnEditDivision };
-            List<Button> projectsBtn = new List<Button>() { btnProjectDirector, btnAddProject,btnEditProject };
-            List<Button> departmentsBtn = new List<Button>() { btnDepartmentDirector, btnAddDepartment,btnEditDept };
+            List<Button> companiesBtn = new List<Button>() { btnAddCompany, btnCompanyDirector, btnEditCompany };
+            List<Button> divisionsBtn = new List<Button>() { btnDivisionDirector, btnAddDivision, btnEditDivision };
+            List<Button> projectsBtn = new List<Button>() { btnProjectDirector, btnAddProject, btnEditProject };
+            List<Button> departmentsBtn = new List<Button>() { btnDepartmentDirector, btnAddDepartment, btnEditDept };
 
             foreach (Button item in companiesBtn)
             {
@@ -257,17 +271,6 @@ namespace individualne4
             EditCompany(dgwDepartment);
         }
         #endregion
-        private void RefreshGrids()
-        {
-            _sectionManagerViewModel.GetCompanies();
-            GridContent(dgwCompany, _sectionManagerViewModel.GetCompanies());
-            FillGrid(dgwCompany, dgwDivision, lblCompany);
-            FillGrid(dgwDivision, dgwProject, lblDivision);
-            FillGrid(dgwProject, dgwDepartment, lblProject);
-            DisableAddButton(dgwCompany, btnAddDivision);
-            DisableAddButton(dgwDivision, btnAddProject);
-            DisableAddButton(dgwProject, btnAddDepartment);
-            DisableAddButton(dgwDepartment, btnAddEmployy);
-        }
+
     }
 }

@@ -31,18 +31,6 @@ namespace individualne4
             txtEmail.Text = _modelEmployee.Email;
         }
 
-
-        //private ModelEmployee SetEmployee()
-        //{
-        //    _modelEmployee = new ModelEmployee();
-        //    _modelEmployee.Title = txtTitle.Text;
-        //    _modelEmployee.FirstName = txtFirstName.Text ;
-        //    _modelEmployee.LastName = txtLastName.Text ;
-        //    _modelEmployee.Phone = txtPhone.Text ;
-        //    _modelEmployee.Email = txtEmail.Text;
-        //    return _modelEmployee;
-        //}
-
         private void btnSaveDirector_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK;
