@@ -216,7 +216,7 @@ namespace individualne4
             int deptSum = dgwDepartment.Rows.Count;
             int employeeSum = dgwEmployees.Rows.Count;
 
-            List<Button> companiesBtn = new List<Button>() { btnAddCompany, btnCompanyDirector, btnEditCompany };
+            List<Button> companiesBtn = new List<Button>() {  btnCompanyDirector, btnEditCompany };
             List<Button> divisionsBtn = new List<Button>() { btnDivisionDirector, btnAddDivision, btnEditDivision };
             List<Button> projectsBtn = new List<Button>() { btnProjectDirector, btnAddProject, btnEditProject };
             List<Button> departmentsBtn = new List<Button>() { btnDepartmentDirector, btnAddDepartment, btnEditDept };
