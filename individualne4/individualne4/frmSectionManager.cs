@@ -69,7 +69,7 @@ namespace individualne4
             employeeModel = _sectionManagerViewModel.SelectEmployeeById(_sectionDirectorId);
             employeeModel.WorkAtDepartmentId = Convert.ToInt32(dgwDepartment.SelectedRows[0].Cells[0].Value);
             _sectionManagerViewModel.UpdateEmployee(employeeModel);
-            //RefreshGrids();
+            dgwDepartment_SelectionChanged(this, new EventArgs());
         }
         #endregion
 
