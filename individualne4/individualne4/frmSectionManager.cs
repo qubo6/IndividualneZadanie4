@@ -182,7 +182,7 @@ namespace individualne4
                 ClearGrid(dgwEmployees);
             }
             DisableAddButton(dgwDepartment, btnAddEmployy);
-            EnableButtons();
+            EnableButtons();            
         }
 
         private void RefreshGrids()
