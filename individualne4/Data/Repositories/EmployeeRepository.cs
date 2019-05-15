@@ -136,13 +136,14 @@ namespace Data.Repositories
             Execute((command) =>
             {
                 command.CommandText = @"Update employee set [Title] = @Title, [FirstName] = @FirstName, [LastName] = @LastName, 
-                                             [Phone] = @Phone, [Email] = @Email where id=@id";
+                                             [Phone] = @Phone, [Email] = @Email, [WorkAtID]=@WorkAt where id=@id";
                 command.Parameters.Add("@id", SqlDbType.Int).Value = modelEmployee.Id;
                 command.Parameters.Add("@Title", SqlDbType.VarChar).Value = modelEmployee.Title;
                 command.Parameters.Add("@FirstName", SqlDbType.VarChar).Value = modelEmployee.FirstName;
                 command.Parameters.Add("@LastName", SqlDbType.VarChar).Value = modelEmployee.LastName;
                 command.Parameters.Add("@Phone", SqlDbType.VarChar).Value = modelEmployee.Phone;
                 command.Parameters.Add("@Email", SqlDbType.VarChar).Value = modelEmployee.Email;
+                command.Parameters.Add("@WorkAt", SqlDbType.Int).Value = modelEmployee.WorkAtDepartmentId;
                 if (command.ExecuteNonQuery() > 0)
                 {
                     success = true;
@@ -155,18 +156,19 @@ namespace Data.Repositories
             ModelEmployee modelEmployee = new ModelEmployee();
             Execute((command) =>
             {
-                command.CommandText = "select [Title], [FirstName], [LastName], [Phone], [Email] " +
+                command.CommandText = "select [Title], [FirstName], [LastName], [Phone], [Email], [id] " +
                 " from employee where id=@employeeId";
-                command.Parameters.Add("@employeeId", SqlDbType.Int).Value = modelEmployee.Id;
+                command.Parameters.Add("@employeeId", SqlDbType.Int).Value = employeeId;
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
                     if (reader.Read())
-                    {
+                    {                        
                         modelEmployee.Title = reader.GetString(0);
                         modelEmployee.FirstName = reader.GetString(1);
                         modelEmployee.LastName = reader.GetString(2);
                         modelEmployee.Phone = reader.GetString(3);
                         modelEmployee.Email = reader.GetString(4);
+                        modelEmployee.Id = reader.GetInt32(5);
                     }
                 }
             });

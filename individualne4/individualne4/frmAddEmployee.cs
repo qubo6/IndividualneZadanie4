@@ -32,8 +32,7 @@ namespace individualne4
         }
 
         private void btnSaveDirector_Click(object sender, EventArgs e)
-        {
-            DialogResult = DialogResult.OK;
+        {           
             if (_modelEmployee==null)
             {
                 ModelEmployee model = new ModelEmployee();
@@ -52,7 +51,8 @@ namespace individualne4
                 _modelEmployee.Phone = txtPhone.Text;
                 _modelEmployee.Email = txtEmail.Text;
                 _addEmployeeViewModel.UpdateEmployeeBy(_modelEmployee);
-            }           
+            }
+            DialogResult = DialogResult.OK;          
             Close();
         }
 

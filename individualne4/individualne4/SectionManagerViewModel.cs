@@ -36,5 +36,9 @@ namespace individualne4
         {
             return _logic.SelectDirectorBySection(departmentId);
         }
+        public ModelEmployee SelectEmployeeById(int employeeId)
+        {
+            return _logic.SelectEmployeeById(employeeId);
+        }
     }
 }
